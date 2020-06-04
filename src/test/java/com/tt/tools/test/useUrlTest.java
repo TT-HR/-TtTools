@@ -2,6 +2,7 @@ package com.tt.tools.test;
 
 import com.tt.tools.entity.UseUrlEntity;
 import com.tt.tools.service.UseUrlService;
+import com.tt.tools.untils.BeanUntil;
 import groovy.util.logging.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ import java.util.Map;
 public class useUrlTest {
     @Autowired
     private UseUrlService useUrlService;
+    @Autowired
+    private BeanUntil beanUntil;
     @Test
     public void getUrlTest(){
 //        UseUrlEntity useUrlEntity = new UseUrlEntity();
@@ -27,4 +30,9 @@ public class useUrlTest {
 //        });
     }
 
+    @Test
+    public void untilTest() throws ClassNotFoundException {
+        beanUntil.getBeanUntil("UseUrlEntity");
+
+    }
 }
