@@ -32,7 +32,6 @@ public class useUrlTest {
 
     @Test
     public void untilTest() throws ClassNotFoundException {
-        beanUntil.getBeanUntil("UseUrlEntity");
 
     }
 }

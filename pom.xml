@@ -82,18 +82,11 @@
             <optional>true</optional>
         </dependency>
         <!-- mysql-->
-<!--        <dependency>-->
-<!--            <groupId>mysql</groupId>-->
-<!--            <artifactId>mysql-connector-java</artifactId>-->
-<!--            <version>5.1.37</version>-->
-<!--        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.16</version>
         </dependency>
-
         <!-- 添加JDBC依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -106,11 +99,27 @@
             <version>1.18.8</version>
             <scope>provided</scope>
         </dependency>
+        <!-- 添加json依赖 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.70</version>
+        </dependency>
+
+        <!-- 添加junit依赖 -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- swagger -->
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-core</artifactId>
+            <version>1.5.16</version>
+        </dependency>
+
+
 
     </dependencies>
 
