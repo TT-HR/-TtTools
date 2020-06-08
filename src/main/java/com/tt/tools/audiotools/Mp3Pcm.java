@@ -1,6 +1,8 @@
 package com.tt.tools.audiotools;
 
+import groovy.util.logging.Slf4j;
 import javazoom.spi.mpeg.sampled.file.MpegAudioFileReader;
+import org.springframework.stereotype.Component;
 
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioFormat;
@@ -12,6 +14,8 @@ import java.io.IOException;
 /**
  * @author admin
  */
+@Slf4j
+@Component
 public class Mp3Pcm {
 
     /**

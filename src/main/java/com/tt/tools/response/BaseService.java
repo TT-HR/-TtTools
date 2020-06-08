@@ -23,4 +23,7 @@ public class BaseService<T> {
     public UnifiedResponse<T> error(){
         return new UnifiedResponse<>(ResponseEnum.ERROR.CODE,ResponseEnum.ERROR.message);
     }
+    public UnifiedResponse<T> error(int code,String msg){
+        return new UnifiedResponse<>(code,msg);
+    }
 }

@@ -1,13 +1,13 @@
 package com.tt.tools.audiotools;
 
 import com.tt.tools.response.BaseService;
-import com.tt.tools.untils.BeanUntil;
-import com.tt.tools.untils.UnifiedResponse;
+import groovy.util.logging.Slf4j;
 import org.jaudiotagger.audio.mp3.MP3AudioHeader;
 import org.jaudiotagger.audio.mp3.MP3File;
 import org.jaudiotagger.tag.id3.AbstractID3v2Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -17,14 +17,19 @@ import java.util.Map;
 /**
  * @author admin
  */
+@Slf4j
+@Component
 public class Sampling extends BaseService {
     private MP3File mp3File;
     private final int START=6;
     private static final Logger log = LoggerFactory.getLogger(Sampling.class);
 
-    private UnifiedResponse getHead(String mp3Path) {
+    /**
+     * 获取音频详细参数
+     * */
+    public Map<String,Object> getHead(String filePath) {
         try {
-            mp3File = new MP3File(mp3Path);
+            mp3File = new MP3File(filePath);
             MP3AudioHeader header = mp3File.getMP3AudioHeader();
             Map<String,Object> map = new HashMap<>();
             map.put("时长",header.getTrackLength());
@@ -36,15 +41,20 @@ public class Sampling extends BaseService {
             map.put("MPEG",header.getMpegLayer());
             map.put("MP3起始字节",header.getMp3StartByte());
             map.put("精确的音轨长度",header.getPreciseTrackLength());
-            return success(map);
+            return map;
         } catch (Exception e) {
             log.info("获取音频参数失败："+e);
+            return null;
         }
-        return error();
     }
-    private UnifiedResponse getContent() {
+
+    /**
+     * 获取音乐参数
+     * */
+    public Map<String,Object> getContent(String filePath) {
         try {
-            System.out.println("----------------Loading...Content-----------------");
+            log.info("----------------Loading...Content-----------------");
+            mp3File = new MP3File(filePath);
             AbstractID3v2Tag id3v2tag=  mp3File.getID3v2Tag();
             Map<String,Object> map = new HashMap<>();
             String songName=new String(id3v2tag.frameMap.get("TIT2").toString().getBytes("ISO-8859-1"),"GB2312");
@@ -53,13 +63,12 @@ public class Sampling extends BaseService {
             map.put("歌名",songName.substring(START, songName.length()-3));
             map.put("歌手",singer.substring(START,singer.length()-3));
             map.put("专辑名",author.substring(START,author.length()-3));
-            return success(map);
+            return map;
         } catch (Exception e) {
             log.info("获取音频参数失败:"+e);
+            return null;
         }
-        return error();
     }
-
 
     /**
      * 获取音频的采样率

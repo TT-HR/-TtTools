@@ -8,7 +8,7 @@ import com.tt.tools.untils.UnifiedResponse;
 public interface UseUrlService {
     /**
      * select useUrl service
-     * @return pojo UseUrlEntity
+     * @return  UnifiedResponse返回体
      * */
     UnifiedResponse getUseUrl();
 }

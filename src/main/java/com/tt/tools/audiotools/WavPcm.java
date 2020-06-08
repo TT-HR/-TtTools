@@ -1,5 +1,8 @@
 package com.tt.tools.audiotools;
 
+import groovy.util.logging.Slf4j;
+import org.springframework.stereotype.Component;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -7,6 +10,8 @@ import java.io.IOException;
 /**
  * @author admin
  */
+@Slf4j
+@Component
 public class WavPcm {
     /**
      * wav格式转pcm格式
