@@ -24,7 +24,6 @@ public class UseUrlApi {
     @Autowired
     private UseUrlService useUrlService;
 
-
     @ApiOperation("获取url")
     @PostMapping("post/getUseUrl")
     public UnifiedResponse getUserUrl(){

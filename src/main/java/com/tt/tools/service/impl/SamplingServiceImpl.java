@@ -1,6 +1,6 @@
 package com.tt.tools.service.impl;
 
-import com.tt.tools.audiotools.Sampling;
+import com.tt.tools.untilmethod.audiotools.Sampling;
 import com.tt.tools.response.BaseService;
 import com.tt.tools.service.SamplingService;
 import com.tt.tools.untils.UnifiedResponse;

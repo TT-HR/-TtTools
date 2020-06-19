@@ -22,7 +22,7 @@ public class BeanUntil<T> {
      *获取bean私有属性
      *
      * */
-    public List getBeanUntil(T t) throws ClassNotFoundException {
+    public List getBeanUntil(T t){
         //获取bean所有属性
         Field[] fields = t.getClass().getDeclaredFields();
         String[] name = new String[fields.length];
