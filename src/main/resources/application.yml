@@ -7,8 +7,8 @@ server:
 spring:
   datasource:
     url: jdbc:mysql://yyt6.cn:3306/tools?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT
-    username: ENC(TdytcO1YMJJA/XzMXSpNuw==)
-    password: ENC(QzxoaRW5RYJ/Ydw/X+Mrkw==)
+    username: ENC(+Ez4KxVNlimNyaJXO9xKpw==)
+    password: ENC(2UUG56DP61BJSuPYGW0TTTBv3L9X122l)
     driver-calss-name: com.mysql.cj.jdbc.Driver
 mybatis:
   configuration:
