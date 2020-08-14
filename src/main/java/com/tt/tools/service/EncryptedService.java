@@ -5,6 +5,8 @@ import com.tt.tools.entity.EncryptedEntity;
 import com.tt.tools.entity.vo.EncryptedVO;
 import com.tt.tools.untils.UnifiedResponse;
 
+import java.util.List;
+
 /**
  * @author admin
  */
@@ -14,5 +16,5 @@ public interface EncryptedService extends IService<EncryptedEntity> {
      * save Encrypted
      * @param encryptedVO EncryptedEntity的VO
      * */
-    UnifiedResponse saveAndJasypt(EncryptedVO encryptedVO);
+    List saveAndJasypt(EncryptedVO encryptedVO);
 }

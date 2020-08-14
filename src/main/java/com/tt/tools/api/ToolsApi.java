@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author admin
@@ -31,9 +32,9 @@ public class ToolsApi extends BaseService {
     public UnifiedResponse getJasypt(@RequestBody EncryptedVO encryptedVO){
         try {
 
-            UnifiedResponse unifiedResponse = encryptedService.saveAndJasypt(encryptedVO);
+            List list = encryptedService.saveAndJasypt(encryptedVO);
             log.info("保存加密后数据成功");
-            return new UnifiedResponse(200,"加密成功",unifiedResponse);
+            return new UnifiedResponse(200,"加密成功",list);
         } catch (Exception e){
             log.error("getJasypt error",e);
             return error(200,"error"+e);

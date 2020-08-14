@@ -17,6 +17,10 @@ public class UnifiedResponse<T> {
     @ApiModelProperty(value = "响应数据")
     private T data;
 
+    public UnifiedResponse(T data){
+        this.data = data;
+    }
+
     public UnifiedResponse(Integer code, String message, T data) {
         this.code = code;
         this.message = message;

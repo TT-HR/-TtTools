@@ -25,15 +25,13 @@ public class EncryptedServiceImpl extends ServiceImpl<EncryptedMapper, Encrypted
     private static final Logger log = LoggerFactory.getLogger(EncryptedServiceImpl.class);
     @Autowired
     private JasyptUntil jasyptUntil;
-    @Resource
-    private EncryptedMapper encryptedMapper;
 
     @Override
-    public UnifiedResponse saveAndJasypt(EncryptedVO encryptedVO) {
+    public List saveAndJasypt(EncryptedVO encryptedVO) {
         //加密
         List encrypto = jasyptUntil.encrypto(encryptedVO.getSalt(), encryptedVO.getData());
         if (encrypto.size()==0){
-            return new UnifiedResponse(500,"数据不存在");
+            return null;
         }
         log.info("加密数据成功");
         //保存加密后数据
@@ -44,7 +42,7 @@ public class EncryptedServiceImpl extends ServiceImpl<EncryptedMapper, Encrypted
         encryptedEntity.setEncryptedDate(new Date());
         saveOrUpdate(encryptedEntity);
 
-        return new UnifiedResponse(200,"加密成功",encrypto);
+        return encrypto;
     }
 
 }
