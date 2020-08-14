@@ -31,6 +31,7 @@ public class EncryptedServiceImpl extends ServiceImpl<EncryptedMapper, Encrypted
         //加密
         List encrypto = jasyptUntil.encrypto(encryptedVO.getSalt(), encryptedVO.getData());
         if (encrypto.size()==0){
+            log.info("加密后的值为空");
             return null;
         }
         log.info("加密数据成功");
