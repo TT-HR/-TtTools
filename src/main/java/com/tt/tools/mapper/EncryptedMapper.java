@@ -1,10 +1,12 @@
 package com.tt.tools.mapper;
 
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.tt.tools.entity.EncryptedEntity;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @author admin
  */
-public interface EncryptedMapper extends IService<EncryptedEntity> {
+@Mapper
+public interface EncryptedMapper extends BaseMapper<EncryptedEntity> {
 }
