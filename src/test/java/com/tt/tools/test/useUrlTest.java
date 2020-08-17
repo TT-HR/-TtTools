@@ -10,10 +10,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 @Slf4j
@@ -31,6 +28,13 @@ public class useUrlTest {
         list.add("yhr199792tool");
         map.put("tt",list);
         System.out.println(new JSONObject(map));
+    }
+
+    @Test
+    public void tt(){
+        String uuid=UUID.randomUUID().toString();
+        String date=new Date().toString();
+
     }
 
 }

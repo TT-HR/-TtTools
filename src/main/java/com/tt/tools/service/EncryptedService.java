@@ -15,6 +15,7 @@ public interface EncryptedService extends IService<EncryptedEntity> {
     /**
      * save Encrypted
      * @param encryptedVO EncryptedEntity的VO
+     * @return list类型
      * */
     List saveAndJasypt(EncryptedVO encryptedVO);
 }
